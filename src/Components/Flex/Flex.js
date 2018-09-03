@@ -13,6 +13,8 @@ const Flex = ({
 
     margin,
     padding,
+
+    className,
 }) => {
     const SDiv = styled.div`
         display    : flex;
@@ -27,7 +29,7 @@ const Flex = ({
         align-items     : ${alignItems};
         align-content   : ${alignContent};
     `;
-    return <SDiv>{children}</SDiv>;
+    return <SDiv className={className} >{children}</SDiv>;
 } 
 
 Flex.defaultProps = {
@@ -41,6 +43,8 @@ Flex.defaultProps = {
 
     margin  : undefined,
     padding : undefined,
+
+    className : undefined,
 };
 
 Flex.propTypes = {
@@ -54,6 +58,8 @@ Flex.propTypes = {
 
     margin  : PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     padding : PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+    className : PropTypes.string,
 };
 
 export default Flex;

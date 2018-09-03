@@ -8,8 +8,6 @@ import {
     Toolbar,
     Typography,
     IconButton,
-    Input,
-    InputAdornment,
 } from '@material-ui/core';
 
 import {
@@ -35,8 +33,10 @@ const Header = ({
 
     toggleDrawer,
     toggleLayout,
+
+    classes,
 }) => (
-    <AppBar position="static" >
+    <AppBar position="static" className={classes} >
         <Toolbar>
             <Flex
                 justifyContent="space-between"

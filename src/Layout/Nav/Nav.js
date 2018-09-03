@@ -20,7 +20,6 @@ import {
 } from '../../reducers';
 
 import {
-    DrawerHeader,
     NavMenu,
     NewTag,
 } from './subcomponents';
@@ -35,18 +34,20 @@ const Nav = ({
     tags,
     filterTag,
 
-    toggleDrawer,
     toggleNewTagForm,
     toggleTag,
+
+    classes,
 }) => (
     <Drawer
         variant="persistent"
         anchor="left"
         open={isDrawerOpen}
+        classes={{
+            paper: classes,
+        }}
     >
         <DrawerWrapper>
-            <DrawerHeader toggleDrawer={toggleDrawer} />
-            <Divider />
             <NavMenu tags={tags} filterTag={filterTag} toggleTag={toggleTag} />
             <NewTag isFormOpen={isNewTagFormOpen} toggleForm={toggleNewTagForm} />
         </DrawerWrapper>

@@ -7,25 +7,31 @@ import { Header } from './Header';
 import { Nav } from './Nav';
 import { Content } from './Content';
 
+import { Flex, FlexItem } from '../Components'
+
 import {
     isDrawerOpenSelector,
-
-} from '../reducers'
+} from '../reducers';
 
 const styles = theme => ({
-    appContent : {
-        width : '100%',
+    header : {
         position : 'absolute',
-        zIndex : 1,
-        transition: theme.transitions.create(['margin', 'width'], {
+        zIndex : 1201,
+    },
+    nav : {
+        paddingTop : 64,
+    },
+    content : {
+        boxSizing : 'border-box',
+        paddingTop : 64,
+        transition: theme.transitions.create('padding', {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
         }),
     },
-    appContentShift: {
-        width: `calc(100% - ${240}px)`,
-        marginLeft : 240,
-    },
+    contentReduced : {
+        paddingLeft : 240,
+    }
 });
 
 const Layout = ({
@@ -34,9 +40,13 @@ const Layout = ({
     classes,
 }) => (
     <Fragment>
-        <Header />
-        <Nav />
-        <Content />
+        <Header classes={classes.header} />
+        <Nav classes={classes.nav} />
+        <div
+            className={`${classes.content} ${isDrawerOpen ? classes.contentReduced : ''}`}
+        >
+            <Content  />
+        </div>
     </Fragment>
 );
 
