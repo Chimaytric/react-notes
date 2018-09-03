@@ -44,7 +44,7 @@ const initialState = {
     isDrawerOpen      : false,
     layout            : layoutTypes.line,
     isNewTagFormOpen  : false,
-    isNewNoteFormOpen : true,
+    isNewNoteFormOpen : false,
 };
 
 // 
